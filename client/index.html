@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Learn AngularJS - Order Form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="../style/template.less" rel="stylesheet/less" />
+	<script src="../js/jquery-1.10.2.min.js"></script>
+	<script src="../style/less.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/script.js"></script>
+</head>
+<body ng-app='spt' class="wrapper">
+	<div class="container">
+	<div class="row">
+
+	<div class="col-lg-6 col-lg-offset-3 pane" style="margin-bottom:30px;margin-top:30px;">
+		<div class="pane">
+			<h1>Регистрация на SPT</h1>
+				<form action="form.php" name="register" id="register" method="post" enctype="multipart/form-data">
+
+					<legend>Информация об ученике</legend>
+					<div class="form-group">
+									<input type="hidden" name="student_id" value="student_id">
+						<label for="">Имя</label>
+						<input class="form-control required " title="Введите ваше имя" type="name" class="" name="student_name" id=""  />
+						<label for="">Фамилия</label>
+						<input class="form-control" title="Введите вашу фамилию" name="student_surname" id="" required />
+						<label for="">Электронная почта  </label>
+						<input type="email" class="form-control " title="Введите вашу почту" id="" name="student_email"
+												 aria-describedby="emailHelp" placeholder="Введите почту" required/>
+						<label for="">ИИН</label>
+						<input type="number" class="form-control " title="Введите ваше ИИН" name="student_iin" id="" required/>
+
+					</div>
+					<div class="form-group">
+						<legend>Участие в SPT</legend>
+						<label for="city">Город</label>
+						<select name="city" class="form-control required" title="Выберите город" id="city">
+							<option value="1">Алматы</option>
+							<option value="2">Шымкент</option>
+							<option value="3">Астана</option>
+							<option value="4">Актобе</option>
+							<option value="5">Атырау</option>
+							<option value="6">Орал</option>
+							<option value="7">Кызылорда</option>
+							<option value="8">Жезказган</option>
+							<option value="9">Усть-Каменогорск</option>
+							<option value="10">Караганда</option>
+						</select>
+						<label for="">Школа</label>
+						<input  type="text" class="form-control" name="" placeholder="Введите название школы"><br>
+						<select name= "school" class="form-control required" title="Выберите город" >
+							<option value="1">Назарбаев Интеллектуальная школа физико-математического направления</option>
+							<option value="2">Гуманитарная школа-гимназия №38 им. Н. Ондасынова</option>
+							<option value="3">Школа-лицей №41</option>
+						</select>
+					</div>
+
+					<fieldset class="form-group">
+					<legend>Пятый предмет</legend>
+					<div class="form-check">
+						<label class="form-check-label">
+						<input  class="form-check-input " title="Выберите как минимум один вариант" type="radio" name="subject" id="optionsRadios1" value="1" required>
+									Английский язык
+						</label>
+						<br/>
+						<label class="form-check-label">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios2" value="2">
+									Казахская литература
+						</label>
+						<br/>
+						<label class="form-check-label">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios3" value="3">
+									География
+						</label>
+						<br/>
+						<label class="form-check-label">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios4" value="4">
+						Физика
+						</label>
+						<br/>
+						<label class="form-check-label">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios5" value="5">
+									Всемирная история
+						</label>
+					</div>
+					</fieldset>
+					<fieldset class="form-group">
+					<legend>Язык тестирования </legend>
+					<div class="form-check">
+						<label class="form-check-label">
+						<input class="form-check-input" title="Выберите один вариант" type="radio"  name="language" id="optionsRadios1" value="1"  required>
+						Казахский
+						</label><br/>
+						<label class="form-check-label">
+						<input type="radio" class="form-check-input"  name="language" id="optionsRadios2" value="2">
+						Русский
+						</label>
+					</div>
+					</fieldset>
+					<div class="form-group">
+									<input type="hidden"  name="MAX_FILE_SIZE" value="2000000">
+									<label for="user_pic">Отправка изображения:</label>
+									<input class="form-check-input" type="file" name="user_pic" size="30">
+					</div>
+					<div><input class="btn btn-primary" name="upload" type="submit" value="Отправить" /></div>
+				</form>
+		</div>
+	</div>
+	</div>
+	</div>
+
+</body>
+</html>

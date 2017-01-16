@@ -12,33 +12,32 @@
 	<script src="../js/angular.min.js"></script>
 	<script src="../js/script.js"></script>
 </head>
-<body ng-app='spt' class="wrapper">
+<body ng-app='spt' ng-controller='sptCtrl' class="wrapper">
 	<div class="container">
 	<div class="row">
 
 	<div class="col-lg-6 col-lg-offset-3 pane" style="margin-bottom:30px;margin-top:30px;">
 		<div class="pane">
 			<h1>Регистрация на SPT</h1>
-				<form action="form.php" name="register" id="register" method="post" enctype="multipart/form-data">
+				<form  name="register" id="register" method="post" enctype="multipart/form-data">
 
 					<legend>Информация об ученике</legend>
 					<div class="form-group">
-									<input type="hidden" name="student_id" value="student_id">
 						<label for="">Имя</label>
-						<input class="form-control required " title="Введите ваше имя" type="name" class="" name="student_name" id=""  />
+						<input class="form-control required " title="Введите ваше имя" type="name" class="" name="student_name" id=""  ng-model='name'/>
 						<label for="">Фамилия</label>
-						<input class="form-control" title="Введите вашу фамилию" name="student_surname" id="" required />
+						<input class="form-control" title="Введите вашу фамилию" name="student_surname" id="" required ng-model='surname'/>
 						<label for="">Электронная почта  </label>
 						<input type="email" class="form-control " title="Введите вашу почту" id="" name="student_email"
-												 aria-describedby="emailHelp" placeholder="Введите почту" required/>
+												 aria-describedby="emailHelp" placeholder="Введите почту" required ng-model='email'/>
 						<label for="">ИИН</label>
-						<input type="number" class="form-control " title="Введите ваше ИИН" name="student_iin" id="" required/>
+						<input type="number" class="form-control " title="Введите ваше ИИН" name="student_iin" id="" required ng-model='iin'/>
 
 					</div>
 					<div class="form-group">
 						<legend>Участие в SPT</legend>
 						<label for="city">Город</label>
-						<select name="city" class="form-control required" title="Выберите город" id="city">
+						<select name="city" class="form-control required" title="Выберите город" id="city" ng-model='city'>
 							<option value="1">Алматы</option>
 							<option value="2">Шымкент</option>
 							<option value="3">Астана</option>
@@ -51,8 +50,8 @@
 							<option value="10">Караганда</option>
 						</select>
 						<label for="">Школа</label>
-						<input  type="text" class="form-control" name="" placeholder="Введите название школы"><br>
-						<select name= "school" class="form-control required" title="Выберите город" >
+						<input  type="text" class="form-control" name="" placeholder="Введите название школы" ng-model='school'><br>
+						<select name= "school" class="form-control required"  >
 							<option value="1">Назарбаев Интеллектуальная школа физико-математического направления</option>
 							<option value="2">Гуманитарная школа-гимназия №38 им. Н. Ондасынова</option>
 							<option value="3">Школа-лицей №41</option>
@@ -68,22 +67,22 @@
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios2" value="2">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios2" value="2" ng-model="subject.selected" value={{subject.name}}>
 									Казахская литература
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios3" value="3">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios3" value="3" ng-model="subject.selected" value={{subject.name}}>
 									География
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios4" value="4">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios4" value="4" ng-model="subject.selected" value={{subject.name}}>
 						Физика
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios5" value="5">
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios5" value="5" ng-model="subject.selected" value={{subject.name}}>
 									Всемирная история
 						</label>
 					</div>
@@ -106,7 +105,8 @@
 									<label for="user_pic">Отправка изображения:</label>
 									<input class="form-check-input" type="file" name="user_pic" size="30">
 					</div>
-					<div><input class="btn btn-primary" name="upload" type="submit" value="Отправить" /></div>
+					<div>
+						<input class="btn btn-primary" name="upload" type="submit" value="Отправить" ng-click='save()'/></div>
 				</form>
 		</div>
 	</div>

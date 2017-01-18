@@ -18,6 +18,8 @@
 
 	<div class="col-lg-6 col-lg-offset-3 pane" style="margin-bottom:30px;margin-top:30px;">
 		<div class="pane">
+			<button type="button" name="button" class="btn" ng-class:"{ form.type=='rus' : btn-primary }" ng-click='languageChoose("rus")'>Русский</button>
+			<button type="button" name="button" class="btn" ng-class:"{ form.type=='kaz' : btn-primary }" ng-click='languageChoose("kaz")'>Kazakh</button>
 			<h1>Регистрация на SPT</h1>
 				<form  name="register" id="register" method="post" enctype="multipart/form-data">
 

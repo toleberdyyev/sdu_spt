@@ -22,18 +22,16 @@
 				<form  name="register" id="register" method="post" enctype="multipart/form-data">
 
 					<legend>Информация об ученике</legend>
-					<div class="form-group">
-						<label for="">Имя</label>
-						<input class="form-control required " title="Введите ваше имя" type="name" class="" name="student_name" id=""  ng-model='name'/>
-						<label for="">Фамилия</label>
-						<input class="form-control" title="Введите вашу фамилию" name="student_surname" id="" required ng-model='surname'/>
-						<label for="">Электронная почта  </label>
-						<input type="email" class="form-control " title="Введите вашу почту" id="" name="student_email"
-												 aria-describedby="emailHelp" placeholder="Введите почту" required ng-model='email'/>
-						<label for="">ИИН</label>
-						<input type="number" class="form-control " title="Введите ваше ИИН" name="student_iin" id="" required ng-model='iin'/>
-
-					</div>
+				<div class="form-group">
+				<label for=""><p class="error" ng-class="name_err">{{ form.name }}</p></label>
+				<input ng-model="name"  class="form-control required " placeholder="Введите ваше имя" type="name"  name="student_name" id="" required/>
+				<label for=""><p >Фамилия</p></label>
+				<input ng-model="surname"  class="form-control" placeholder="Введите вашу фамилию" name="student_surname" id="" required />
+				<label for=""><p >Электронная почта</p></label>
+				<input ng-model="email" type="text" class="form-control " title="Введите вашу почту" id="" name="student_email" placeholder="Введите почту" required/>
+				<label for=""><p ng-class="iin_err">ИИН</p></label>
+				<input ng-model="iin" type="text" class="form-control " placeholder="Введите ваше ИИН" name="student_iin" id="" required/>
+				</div>
 					<div class="form-group">
 						<legend>Участие в SPT</legend>
 						<label for="city">Город</label>
@@ -51,38 +49,38 @@
 						</select>
 						<label for="">Школа</label>
 						<input  type="text" class="form-control" name="" placeholder="Введите название школы" ng-model='school'><br>
-						<select name= "school" class="form-control required"  >
+						<!-- <select name= "school" class="form-control required" ng-model='' >
 							<option value="1">Назарбаев Интеллектуальная школа физико-математического направления</option>
 							<option value="2">Гуманитарная школа-гимназия №38 им. Н. Ондасынова</option>
 							<option value="3">Школа-лицей №41</option>
-						</select>
+						</select> -->
 					</div>
 
 					<fieldset class="form-group">
 					<legend>Пятый предмет</legend>
 					<div class="form-check">
 						<label class="form-check-label">
-						<input  class="form-check-input " title="Выберите как минимум один вариант" type="radio" name="subject" id="optionsRadios1" value="1" required>
+						<input  class="form-check-input " title="Выберите как минимум один вариант" type="radio" name="subject" id="optionsRadios1" value="1" required ng-model="selectedSub" ng-value="'Английский язык'">
 									Английский язык
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios2" value="2" ng-model="subject.selected" value={{subject.name}}>
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios2" value="2" ng-model="selectedSub" ng-value="'Казахская литература'">
 									Казахская литература
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios3" value="3" ng-model="subject.selected" value={{subject.name}}>
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios3" value="3" ng-model="selectedSub" ng-value="'География'">
 									География
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios4" value="4" ng-model="subject.selected" value={{subject.name}}>
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios4" value="4" ng-model="selectedSub" ng-value="'Физика'">
 						Физика
 						</label>
 						<br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="subject" id="optionsRadios5" value="5" ng-model="subject.selected" value={{subject.name}}>
+						<input type="radio" class="form-check-input" name="subject" id="optionsRadios5" value="5" ng-model="selectedSub" ng-value="'Всемирная история'">
 									Всемирная история
 						</label>
 					</div>
@@ -91,22 +89,22 @@
 					<legend>Язык тестирования </legend>
 					<div class="form-check">
 						<label class="form-check-label">
-						<input class="form-check-input" title="Выберите один вариант" type="radio"  name="language" id="optionsRadios1" value="1"  required>
+						<input class="form-check-input" title="Выберите один вариант" type="radio"  name="language" id="optionsRadios1" value="1"  required ng-model="selectedLan" ng-value="'Казахский'">
 						Казахский
 						</label><br/>
 						<label class="form-check-label">
-						<input type="radio" class="form-check-input"  name="language" id="optionsRadios2" value="2">
+						<input type="radio" class="form-check-input"  name="language" id="optionsRadios2" value="2"  ng-model="selectedLan" ng-value="'Русский'">
 						Русский
 						</label>
 					</div>
 					</fieldset>
 					<div class="form-group">
 									<input type="hidden"  name="MAX_FILE_SIZE" value="2000000">
-									<label for="user_pic">Отправка изображения:</label>
+									<label for="user_pic"> :</label>
 									<input class="form-check-input" type="file" name="user_pic" size="30">
 					</div>
 					<div>
-						<input class="btn btn-primary" name="upload" type="submit" value="Отправить" ng-click='save()'/></div>
+						<input class="btn btn-primary" name="upload" type="submit" value="Отправить" ng-click='save(name,surname,email,iin,city,school,selectedSub,selectedLan)'/></div>
 				</form>
 		</div>
 	</div>
